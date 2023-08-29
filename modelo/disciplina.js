@@ -22,6 +22,14 @@ class Disciplina {
         this._nome = novoNome;
     }
 
+    get alunos() {
+        return this._alunos;
+    }
+
+    set alunos(alunos) {
+        this._alunos = alunos;
+    }
+
     localizar (nome) {
         this._alunos.array.forEach(aluno => {
             if (aluno.nome === nome) {

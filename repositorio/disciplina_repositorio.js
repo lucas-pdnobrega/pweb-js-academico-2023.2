@@ -18,4 +18,33 @@ class DisciplinaRepositorio {
     listar() {
         return this.disciplinas;
     }
+
+    inserirAluno(codigo, aluno) {
+        const indxDisciplina = this.disciplinas.findIndex(disciplina => disciplina.codigo === codigo);
+        if (indxDisciplina > -1) {
+            this.disciplinas[indxDisciplina].adicionar(aluno);
+        }
+    }
+
+    removerAluno(codigo, aluno) {
+        const indxDisciplina = this.disciplinas.findIndex(disciplina => disciplina.codigo === codigo);
+        if (indxDisciplina > -1) {
+            this.disciplinas[indxDisciplina].remover(aluno);
+        }
+    }
+
+    listarAlunos(codigo) {
+        const indxDisciplina = this.disciplinas.findIndex(disciplina => disciplina.codigo === codigo);
+        if (indxDisciplina > -1) {
+            return this.disciplinas[indxDisciplina].alunos;
+        }
+    }
+
+    localizarAluno(codigo, matricula) {
+        const indxDisciplina = this.disciplinas.findIndex(disciplina => disciplina.codigo === codigo);
+        if (indxDisciplina > -1) {
+            return this.disciplinas[indxDisciplina].localizar;
+        }
+    }
+
 }
