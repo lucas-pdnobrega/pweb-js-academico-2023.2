@@ -8,11 +8,25 @@
 </head>
 
 <body>
-    
-    Codigo:<input id="codigo"><br>
-    Nome:<input id="nome"><br>
+    <div id="forms_cadastramento">
+        <div id="forms_disciplina">
 
-    <button onclick="controladorDisciplina.inserir()">Cadastrar</button>
+            Codigo:<input id="codigo_disciplina"><br>
+            Nome:<input id="nome_disciplina"><br>
+
+            <button onclick="controlador.inserir()">Cadastrar Disciplina</button>
+        </div>
+        <br>
+        <div id="forms-aluno">
+
+            Codigo:<input id="codigo_cd_aluno"><br>
+            Nome:<input id="nome_aluno"><br>
+            Idade:<input id="idade_aluno"><br>
+            Matricula:<input id="matricula_aluno"><br>
+        
+            <button onclick="controlador.inserirAlunoNaDisciplina()">Cadastrar Aluno</button>
+        </div>
+    </div>
 
     <ol id="listaDisciplinas">
         

@@ -1,2 +1,1 @@
-const controladorAluno = new AlunoControlador();
-const controladorDisciplina = new DisciplinaControlador();
+const controlador = new DisciplinaControlador();

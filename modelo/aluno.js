@@ -13,4 +13,8 @@ class Aluno {
     set nome(novoNome) {
         this._nome = novoNome;
     }
+
+    toString() {
+        return `${this._nome}`
+    }
 }

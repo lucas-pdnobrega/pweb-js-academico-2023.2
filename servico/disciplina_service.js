@@ -26,7 +26,7 @@ class DisciplinaService {
         this.repositorio.remover(codigo);
     }
 
-    inserirAlunoNaDisciplina(codigo, aluno) {
+    inserirAluno(codigo, aluno) {
         const disciplinaPesquisada = this.pesquisarPorCodigo(codigo);
         if (disciplinaPesquisada.length > 0) {
             disciplinaPesquisada[0].adicionar(aluno);
