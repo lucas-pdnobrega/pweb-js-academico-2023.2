@@ -16,6 +16,7 @@ class DisciplinaControlador {
 
     inserirDisciplinaNoHtml(disciplina, elementoDestino) {
         const DisciplinaElemento = document.createElement("li");
+        DisciplinaElemento.id = disciplina.codigo;
         DisciplinaElemento.textContent = `Codigo: ${disciplina.codigo} - Nome: ${disciplina.nome}`;
         elementoDestino.appendChild(DisciplinaElemento);
     }

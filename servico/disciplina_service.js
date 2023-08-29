@@ -26,10 +26,10 @@ class DisciplinaService {
         this.repositorio.remover(codigo);
     }
 
-    inserirAluno(codigo, aluno) {
+    inserirAlunoNaDisciplina(codigo, aluno) {
         const disciplinaPesquisada = this.pesquisarPorCodigo(codigo);
-        if (disciplinaPesquisada.length === 0) {
-            disciplinaPesquisada[0].inserirAluno(aluno);
+        if (disciplinaPesquisada.length > 0) {
+            disciplinaPesquisada[0].adicionar(aluno);
         } else {
             throw new Error('Disciplina não encontrada!')
         }

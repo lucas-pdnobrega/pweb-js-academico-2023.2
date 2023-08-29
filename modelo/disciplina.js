@@ -1,9 +1,9 @@
 class Disciplina {
 
-    constructor(codigo, nome, alunos) {
+    constructor(codigo, nome) {
         this._codigo = codigo;
         this._nome = nome;
-        this._alunos = alunos;
+        this._alunos = [];
     }
 
     get codigo() {
@@ -31,7 +31,7 @@ class Disciplina {
     }
 
     localizar (nome) {
-        this._alunos.array.forEach(aluno => {
+        this._alunos.forEach(aluno => {
             if (aluno.nome === nome) {
                 return aluno
             }
@@ -40,18 +40,18 @@ class Disciplina {
     }
 
     adicionar (aluno) {
-        this._alunos.array.push(aluno);
+        this._alunos.push(aluno);
     }
 
     remover (matricula) {
         let aux = {};
-        this._alunos.array.forEach(aluno => {
+        this._alunos.forEach(aluno => {
             if (aluno.matricula === matricula) {
                 aux = aluno;
             }
         })
         try {
-            this._alunos.array.pop(aux);
+            this._alunos.pop(aux);
         } catch {
             throw new Error('Aluno não encontrado!')
         };

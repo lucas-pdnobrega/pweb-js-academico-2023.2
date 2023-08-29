@@ -40,10 +40,10 @@ class DisciplinaRepositorio {
         }
     }
 
-    localizarAluno(codigo, matricula) {
+    localizarAluno(codigo, nome) {
         const indxDisciplina = this.disciplinas.findIndex(disciplina => disciplina.codigo === codigo);
         if (indxDisciplina > -1) {
-            return this.disciplinas[indxDisciplina].localizar;
+            return this.disciplinas[indxDisciplina].localizar(nome);
         }
     }
 
