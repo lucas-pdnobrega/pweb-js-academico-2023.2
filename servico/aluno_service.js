@@ -4,6 +4,9 @@ class AlunoService {
     }
 
     inserir(nome, idade, matricula) {
+        if (idade < 18) {
+            throw new Error('Aluno menor de idade!');
+        }
         const alunoPesquisado = this.pesquisarPorMatricula(matricula);
         if (alunoPesquisado.length > 0) {
             throw new Error('Aluno já cadastrado!');
