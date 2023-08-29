@@ -13,6 +13,24 @@ class DisciplinaService {
         return disciplinaNova;
     }
 
+    atualizar(codigo, nome) {
+        const disciplinaPesquisada = this.pesquisarPorCodigo(codigo);
+        if (disciplinaPesquisada.length != 0) {
+            this.repositorio.atualizar(codigo, nome);
+        } else {
+            throw new Error('Disciplina não encontrada!')
+        }
+    }
+
+    remover(codigo) {
+        const disciplinaPesquisada = this.pesquisarPorCodigo(codigo);
+        if (disciplinaPesquisada.length != 0) {
+            this.repositorio.remover(codigo);
+        } else {
+            throw new Error('Disciplina não encontrada!')
+        }
+    }
+
     pesquisarPorCodigo(codigo) {
         return this.repositorio.listar().filter(
             disciplina => disciplina.codigo === codigo);
@@ -20,10 +38,6 @@ class DisciplinaService {
 
     pesquisarPorMatricula(codigo, matricula) {
         return this.repositorio.localizarAluno(codigo, matricula);
-    }
-
-    remover(codigo) {
-        this.repositorio.remover(codigo);
     }
 
     inserirAluno(codigo, aluno) {
@@ -37,7 +51,7 @@ class DisciplinaService {
 
     removerAluno(codigo, aluno) {
         const disciplinaPesquisada = this.pesquisarPorCodigo(codigo);
-        if (disciplinaPesquisada.length === 0) {
+        if (disciplinaPesquisada.length != 0) {
             disciplinaPesquisada[0].removerAluno(aluno);
         } else {
             throw new Error('Disciplina não encontrada!')

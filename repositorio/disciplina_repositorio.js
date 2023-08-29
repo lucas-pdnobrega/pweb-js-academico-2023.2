@@ -8,6 +8,13 @@ class DisciplinaRepositorio {
         this.disciplinas.push(disciplina);
     }
 
+    atualizar(codigo, nome) {
+        const indxDisciplinaAlterar = this.disciplinas.findIndex(disciplina => disciplina.codigo === codigo);
+        if (indxDisciplinaAlterar > -1) {
+            this.disciplinas[indxDisciplinaAlterar].nome = nome;
+        }
+    }
+
     remover(codigo) {
         const indxDisciplinaARemover = this.disciplinas.findIndex(disciplina => disciplina.codigo === codigo);
         if (indxDisciplinaARemover > -1) {
