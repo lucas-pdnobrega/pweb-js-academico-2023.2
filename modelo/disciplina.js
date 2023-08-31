@@ -56,4 +56,8 @@ class Disciplina {
             throw new Error('Aluno não encontrado!')
         };
     }
+
+    toString () {
+        return `{Codigo : ${this._codigo} | Nome : ${this._nome} | Alunos : ${this._alunos}}`
+    }
 }

@@ -15,7 +15,7 @@ class DisciplinaControlador {
         }
     }
 
-    inserirAlunoNaDisciplina() {
+    inserirAluno() {
         const codigoDisciplina = Number(document.querySelector("#codigo_cd_aluno").value);
         const nomeElemento = document.querySelector("#nome_aluno");
         const idadeElemento = Number(document.querySelector("#idade_aluno").value);
@@ -23,7 +23,7 @@ class DisciplinaControlador {
         const alunoInserido = this.alunoServico.inserir(nomeElemento.value, idadeElemento,
                 matriculoElemento.value);
             if (alunoInserido) {
-                this.disciplinaServico.inserirAluno(codigoDisciplina, alunoInserido);
+                this.disciplinaServico.inserirAlunoNaDisciplina(codigoDisciplina, alunoInserido);
                 this.atualizarDisciplinaNoHtml(codigoDisciplina);
             }
     }
@@ -31,7 +31,7 @@ class DisciplinaControlador {
     inserirDisciplinaNoHtml(disciplina, elementoDestino) {
         const DisciplinaElemento = document.createElement("li");
         DisciplinaElemento.id = `d${disciplina.codigo}`;
-        DisciplinaElemento.textContent = `Codigo: ${disciplina.codigo} - Nome: ${disciplina.nome}`;
+        DisciplinaElemento.textContent = `${disciplina}`;
         elementoDestino.appendChild(DisciplinaElemento);
     }
 
@@ -39,7 +39,7 @@ class DisciplinaControlador {
         const disciplinaElemento = document.getElementById(`d${codigo}`);
         const disciplinaAlvo = this.disciplinaServico.pesquisarPorCodigo(codigo)[0];
         if (disciplinaElemento && disciplinaAlvo) {
-            disciplinaElemento.textContent = `Codigo: ${disciplinaAlvo.codigo} - Nome: ${disciplinaAlvo.nome} - Alunos: ${disciplinaAlvo.alunos}`;
+            disciplinaElemento.textContent = `${disciplinaAlvo}`;
         }
     }
 

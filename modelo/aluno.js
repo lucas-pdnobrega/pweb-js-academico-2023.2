@@ -15,6 +15,6 @@ class Aluno {
     }
 
     toString() {
-        return `${this._nome}`
+        return `{Nome : ${this._nome} | Idade : ${this.idade} | Matricula : ${this.matricula}}`
     }
 }
